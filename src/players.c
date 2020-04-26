@@ -6,7 +6,7 @@
 /*   By: sscarecr <sscarecr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/05 16:30:35 by sscarecr          #+#    #+#             */
-/*   Updated: 2020/04/13 22:20:55 by sscarecr         ###   ########.fr       */
+/*   Updated: 2020/04/26 16:09:38 by sscarecr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void		get_players(t_vm *vm, char **files)
 {
 	unsigned	i;
 
-	vm->players = (t_player*)malloc(sizeof(t_player) * vm->num_players);
+	if (!(vm->players = (t_player*)malloc(sizeof(t_player) * vm->num_players)))
+		sys_error(NULL);
 	i = 0;
 	while (i < vm->num_players)
 	{
